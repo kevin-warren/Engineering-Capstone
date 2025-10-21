@@ -5,6 +5,7 @@
 ## If you know you're the only one working on the code at a given moment:
 
 <ol>
+    <li>Git clone (only have to do this once per repo)</li>
     <li>git switch main (make sure you're on main)</li>
     <li>git add .</li>
     <li>git commit -m "describe what you changed"</li>
