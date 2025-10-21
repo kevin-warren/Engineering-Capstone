@@ -6,6 +6,7 @@
 
 <ol>
     <li>Git clone (only have to do this once per repo)</li>
+    <li>git pull origin main (updates your local repository with latest code in github)</li>
     <li>git switch main (make sure you're on main)</li>
     <li>git add .</li>
     <li>git commit -m "describe what you changed"</li>
@@ -16,6 +17,7 @@
 
 <ol>
     <li>Git clone (only have to do this once per repo)</li>
+    <li>git pull origin main (updates your local repository with latest code in github)</li>
     <li>git switch -c branch_name</li>
     <li>Make code changes</li>
     <li>Git add .</li>
