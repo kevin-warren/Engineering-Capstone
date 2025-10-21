@@ -26,3 +26,5 @@
   <li>git merge branch_name <em>(merge your changes into main)</em></li>
   <li>git push origin main <em>(push merged updates to GitHub)</em></li>
 </ol>
+
+If there are merge conflicts after pulling or merging, resolve them before committing.
