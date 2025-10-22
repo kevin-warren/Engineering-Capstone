@@ -1,7 +1,7 @@
 volatile bool magnetDetected = false;
 volatile unsigned long triggerTime = 0;
 
-const int camSensorPin = 2;   // SS41K output -> Arduino pin 2 (INT0)
+const int camSensorPin = A2;   // SS41K output -> Arduino pin 2 (INT0)
 const int injectorPin = 9;    // Injector or LED output
 const float angleOffset = 30.0; // Degrees between sensor trigger and intake valve open
 const unsigned long injectionDuration = 4000; // In microseconds (4 ms)
@@ -41,12 +41,35 @@ void camTrigger() {
   magnetDetected = true;
 }
 
+//void fireInjector() {
+//  digitalWrite(injectorPin, HIGH);
+//  delayMicroseconds(injectionDuration);
+//  digitalWrite(injectorPin, LOW);
+//
+//  Serial.print("Injector fired at: ");
+//  Serial.print(micros());
+//  Serial.println(" µs");
+//}
+
 void fireInjector() {
   digitalWrite(injectorPin, HIGH);
   delayMicroseconds(injectionDuration);
   digitalWrite(injectorPin, LOW);
 
-  Serial.print("Injector fired at: ");
-  Serial.print(micros());
-  Serial.println(" µs");
+  unsigned long currentTime = micros();
+
+  Serial.print("Time,");
+  Serial.print(currentTime);
+  Serial.print(",Trigger,");
+  Serial.print(triggerTime);
+  Serial.print(",Delay,");
+  Serial.print(currentTime - triggerTime);
+  Serial.println();
+
+  // Optional simple plot signals:
+  Serial.print("InjectorState:");
+  Serial.println(1);  // HIGH
+  delayMicroseconds(100);
+  Serial.print("InjectorState:");
+  Serial.println(0);  // LOW
 }
